@@ -6,15 +6,31 @@
 1.) select session_id,session_start_time,session_end_time,session_date,session_details,session_invitation_details,
 session_recording_link,faculty_fname,faculty_lname from session_schedule_table s,faculty_info_table f where s.faculty_id=f.faculty_id;
 
+------corrected Query--------
+select session_id,module_name,session_start_time,session_end_time,session_date,session_details,session_invitation_details,session_recording_link,
+faculty_fname,faculty_lname from session_schedule_table s,faculty_info_table f,module_table m where s.faculty_id=f.faculty_id and s.module_id = m.module_id;
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ---[Student prn no] [student name][feeback]-------
 
 2.)select student_prn_no,student_fname,student_lname,feedback from student_info_table s ,feedback_table f where s.student_id = f.student_id;
 
 
+------Corrected Query--------------
+
+select feedback_id,student_id,module_name,feedback,student_id from feedback_table f,Module_table m where f.module_id = m.module_id;
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
 ----[Zoom id][session details][recording link][session date][session start time][session end time]
 3.) select s.zoom_id,session_details,session_recording_link,session_date,session_start_time,session_end_time from session_schedule_table s,
  zoom_account_table z where z.zoom_id = s.zoom_id ;
+ 
+ -------------------Corrected Query--------
+ 
+ select s.zoom_id,session_details,session_recording_link,session_date from session_schedule_table s,
+ zoom_account_table z where z.zoom_id = s.zoom_id ;
+ 
 
 
 
@@ -24,9 +40,21 @@ session_recording_link,faculty_fname,faculty_lname from session_schedule_table s
 ---[Student id] [student name][feedback]-------------------
 1.) select s.student_id,student_fname,student_lname,feedback from student_info_table s,feedback_table f where s.student_id = f.student_id;
 
+--------Corrected Query--------------
+
+select s.student_id,student_fname,student_lname,module_name,feedback from student_info_table s,feedback_table f,module_table m where s.student_id = f.student_id and f.module_id=m.module_id;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 ---[session_details][session_date]session_start_time][session_end_time][session_attendance]----------------
 2.)select session_details,session_date,session_start_time,session_end_time,session_attendance from session_schedule_table;
+
+----------Corrected Query--------------
+
+select session_details,session_date,session_start_time,session_end_time,session_attendance from session_schedule_table;
+
+--------------------------------------------------------------------------------------------------------------------------
 
 
 
