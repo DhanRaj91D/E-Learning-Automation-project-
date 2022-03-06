@@ -15,7 +15,8 @@ import javax.persistence.Table;
 @Table(name = "module_table")
 public class Modules {
 
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	@Id 
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "module_id")
 	private int id;
 	
